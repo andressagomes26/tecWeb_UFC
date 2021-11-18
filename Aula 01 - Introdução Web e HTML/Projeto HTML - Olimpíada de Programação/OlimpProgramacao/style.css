@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root{
+    --color-background: rgb(236, 236, 236);
+    --color-title: #333333;
+}
+
+body{
+    background-color: var(--color-background)
+}
+
+form{
+    width: 25%;
+    background-color: #fff;
+    margin: 4vh auto;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+form h3{
+    text-align: center;
+    color: var(--color-title);
+    font-size: 2rem;
+    font-weight: bold;
+    
+    padding: 16px;
+}
+
+table td{
+    padding: 8px;
+}
+input {
+    width: 100%;
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid #333;
+}

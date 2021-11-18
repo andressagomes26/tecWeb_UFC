@@ -1,0 +1,101 @@
+<html>
+    <head> 
+	    <meta charset="utf-8">
+		<title>Cadastro</title>
+
+		<link rel="stylesheet" href="../public/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	
+	<body>
+
+		<header class="cabecalho">
+			<div class="logo">
+				<a href="apresentacao.html">
+				</a>
+			</div>
+			<button class="menu-toggle">
+				<i class="fa fa-lg fa-bars"></i>
+			</button>
+			<nav class="menu">
+				<ul>
+					<li>
+						<a href="apresentacao.html">Início</a>
+					</li>
+				
+				</ul>
+			</nav>
+			<aside class="autenticacao">
+				<a href="#login" class="botao" >Login</a>
+				<a href="#registar" class="botao destaque">Registrar</a>
+				<a class='botao cadastrar' href="formulario.html">Cadastrar</a>
+	
+			</aside>
+    	</header>
+	
+		<div class="div-form">
+			<form action="resultado.html" method="POST">
+				<h1>Cadastrar Participante</h1>
+			
+				<table>
+					<tr> 
+						<td> Nome </td>
+						<td><input type="text" name="name_form"></td>			 
+					</tr>
+
+					<tr> 
+						<td>Email</td>
+						<td><input type="text" name="email_form"></td>			 
+					</tr>
+
+					<tr> 
+						<td> Senha </td>
+						<td><input type="text" name="senha_form"></td>			 
+					</tr>
+
+					<tr> 
+						<td> Modalidade </td>
+						<td>
+							<select name="modalidade_form">
+								<option value="mod1">Desenvolvimento WEB</option>
+								<option value="mod2">Desenvolvimento Mobile</option>
+								<option value="mod3">Desktop</option>
+							</select>
+						</td>			 
+					</tr>
+
+					<tr> 
+						<td> Linguagens </td>
+						<td>
+							<input type="checkbox" name="linguagem" value="Java"/>Java <br>
+							<input type="checkbox" name="linguagem" value="C"/>C <br>
+							<input type="checkbox" name="linguagem" value="C+"/>C++ <br>
+							<input type="checkbox" name="linguagem" value="Python"/>Python <br>
+						</td>
+					</tr>
+
+					<tr> 
+						<td> Esscolha o <br> período </td>
+						<td>
+							<input type="radio" name="periodo" value="manha"/>Manhã <br>
+							<input type="radio" name="periodo" value="tarde"/>Tarde <br>
+							<input type="radio" name="periodo" value="noit"/>Noite <br>
+						</td>
+					</tr>
+
+					<tr> 
+						<td> Apresentação </td>
+						<td>
+							<textarea name="apresentacao" cols="75" rows="15"></textarea>
+						</td>
+					</tr>
+
+				</table>
+			
+				<a href="resultado.html" class='button-submit'>Enviar</a>
+				
+			</form>
+		</div>
+	</body>
+</html>
