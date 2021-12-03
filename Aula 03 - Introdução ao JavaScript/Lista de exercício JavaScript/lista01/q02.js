@@ -12,15 +12,18 @@ e) Para cada aluno diga se ele foi aprovado ou reprovado, considerando o valor 6
 aprovação.*/
 
 
-class Aluno {
-    constructor(nome, matricula, curso) {
+class Alunos {
+    constructor(nome, matricula, nota1, nota2, nota3) {
       this.nome = nome;
       this.matricula = matricula;
-      this.curso = curso;
+      this.nota1 = nota1;
+      this.nota2 = nota2;
+      this.nota3 = nota3;
+
       this.arrayAlunos = [nome, matricula, curso]
     }
 }
-
+/*
 prompt.get(["Nome1", "Matricula1", "Curso1",
             "Nome2", "Matricula2", "Curso2",
             "Nome3", "Matricula3", "Curso3",
@@ -33,3 +36,7 @@ prompt.get(["Nome1", "Matricula1", "Curso1",
   console.log(new Aluno(res.Nome4, res.Matricula4, res.Curso4).arrayAlunos)
   console.log(new Aluno(res.Nome5, res.Matricula5, res.Curso5).arrayAlunos)
 })
+*/
+var meuArray= [0,12,13,2,1273,28,1];
+var maior = Math.max.apply(null, meuArray );
+console.log(maior)
