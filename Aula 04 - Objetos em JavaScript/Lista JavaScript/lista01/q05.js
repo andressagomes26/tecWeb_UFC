@@ -14,8 +14,8 @@ class Agenda {
 
 /* ================= DADOS PARA A LISTA TELEFÔNICA ================= */
 let dadosPessoas = {
-    nome: ['Andressa Gomes Moreira', 'Andressa 2', 'Carlos Augusto', 'Carlos 2',],
-    email: ['a@gmail.com', 'a@hotmail.com', 'c@gmail.com', 'c@hotmail.com'],
+    nome: ['Andressa', 'Andressa 2', 'Brenda', 'Camila',],
+    email: ['a@gmail.com', 'b@hotmail.com', 'c@gmail.com', 'd@hotmail.com'],
     endereco: {
         rua: ['Rua A', 'Rua B', 'Rua C', 'Rua D'], 
         numero: [100, 101, 102, 104], 

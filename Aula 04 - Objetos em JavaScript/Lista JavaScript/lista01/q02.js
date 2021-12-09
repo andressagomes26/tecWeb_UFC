@@ -1,4 +1,6 @@
-/*Crie uma estrutura representando os alunos de um determinado curso. A estrutura
+/*
+
+Crie uma estrutura representando os alunos de um determinado curso. A estrutura
 deve conter a matrícula do aluno, nome, nota da primeira prova, nota da segunda
 prova e nota da terceira prova.
 a) Permita ao usuário entrar com os dados de 5 alunos.  Ok
@@ -6,10 +8,11 @@ b) Encontre o aluno com maior nota da primeira prova informe o nome do aluno.
 c) Encontre o aluno com maior média geral informe o nome do aluno.
 d) Encontre o aluno com menor média geral informe o nome do aluno.
 e) Para cada aluno diga se ele foi aprovado ou reprovado, considerando o valor 6 para
-aprovação.*/
+aprovação.
 
+ */
 
-
+/* =========================  Estrutura  ======================= */
 class Alunos2 {
     constructor(dadosAlunos1, dadosAlunos2, dadosAlunos3, dadosAlunos4, dadosAlunos5){
 
@@ -26,92 +29,74 @@ class Alunos2 {
         ]
 
         this.notas1 = []
-        this.nomes = []
-        this.maiormedia = []
-        this.menormedia = []
+        this.nomes = [] 
+        this.arrayReprovados= [],
+        this.arrayAprovados = [],
+        this.sit = {}
     }
 
-    get maiorNota1(){
+    get situacao(){
+        // Define o aluno com a maior nota 1:
         for(let aluno of this.arrayAlunos){
             this.notas1.push(aluno[2])
             this.nomes.push(aluno[0])
         }
         let maiorNota1 = Math.max.apply(null, this.notas1)
         let index = this.notas1.indexOf(maiorNota1);
+        let alunoMaiorNota = this.nomes[index]
 
-        console.log(this.nomes[index])
-    }
-
-    get maiorMedia(){
+        // Define o aluno com a maior e a menor média:
         function definirMedia(arrayAlunos) {
             let notasAluno = [arrayAlunos[2], arrayAlunos[3], arrayAlunos[4]]
-            let mediaAluno = (notasAluno.reduce((mediaAluno, i) => mediaAluno + i))/3
-            
+            let mediaAluno = (notasAluno.reduce((mediaAluno, i) => mediaAluno + i))/3    
             return mediaAluno  
         }
 
         let medias = []
-
         for(let i = 0; i < 5; i++){
             medias.push(definirMedia(this.arrayAlunos[i]))
         }
         
-        let maiorMedia = Math.max.apply(null, medias)
-        let index = medias.indexOf(maiorMedia);
+        let maiorMedia =  Math.max.apply(null, medias)
+        let indexMaiorMedia = medias.indexOf(maiorMedia)
+        let menorMedia =  Math.min.apply(null, medias)
+        let indexMenorMedia = medias.indexOf(menorMedia)
         
-        for(let aluno of this.arrayAlunos){
-            this.nomes.push(aluno[0])
+        // Define a situação do aluno como Aprovado ou Reprovado
+        this.sit = {
+            aluno1: medias[0] >= 6 ? "Aluno 1 Aprovado": 'Aluno 1 Reprovado',
+            aluno2: medias[1] >= 6 ? "Aluno 2 Aprovado": 'Aluno 2 Reprovado',
+            aluno3: medias[2] >= 6 ? "Aluno 3 Aprovado": 'Aluno 3 Reprovado',
+            aluno4: medias[3] >= 6 ? "Aluno 4 Aprovado": 'Aluno 4 Reprovado',
+            aluno5: medias[4] >= 6 ? "Aluno 5 Aprovado": 'Aluno 5 Reprovado',
         }
 
-        console.log(this.nomes[index])
-
-    }
-
-    get menorMedia(){
-        function definirMedia(arrayAlunos) {
-            let notasAluno = [arrayAlunos[2], arrayAlunos[3], arrayAlunos[4]]
-            let mediaAluno = (notasAluno.reduce((mediaAluno, i) => mediaAluno + i))/3
-            
-            return mediaAluno  
-        }
-        
-        let medias = []
-
-        for(let i = 0; i < 5; i++){
-            medias.push(definirMedia(this.arrayAlunos[i]))
-        }
-        
-        let maiorMedia = Math.min.apply(null, medias)
-        let index = medias.indexOf(maiorMedia);
-        
-        for(let aluno of this.arrayAlunos){
-            this.nomes.push(aluno[0])
-        }
-
-        console.log(this.nomes[index])
-
-        for(let media of medias){
-            if(media >= 6) { console.log(`Aprovado`) }
-            else{  (`Reprovados`) }
+        return {
+            alunoMaiorNota: alunoMaiorNota,
+            nomeAlunoMaiorMedia: this.nomes[indexMaiorMedia],
+            nomeAlunoMenorMedia: this.nomes[indexMenorMedia],
+            sitAluno1: this.sit.aluno1, sitAluno2: this.sit.aluno2,
+            sitAluno3: this.sit.aluno3, sitAluno4: this.sit.aluno4,
+            sitAluno5: this.sit.aluno5 
         }
     }
-
-    get defineSituacao(){
-        for(let aluno of this.arrayAlunos){
-            if(aluno[2] >= 6) { this.arrayAprovados.push(aluno) }
-            else{ this.arrayReprovados.push(aluno) }
-        }
-        console.log(`Aprovados: ${this.arrayAprovados.join(' || ')} 
-        Reprovados: ${this.arrayReprovados.join(' || ')}`)
-    }        
 }
-new Alunos2( 
+
+/* ========================== CHAMADA ========================== */
+let alunos = new Alunos2( 
     {nome: 'Aluno1', matricula: 1, nota1: 10, nota2: 10, nota3: 10},
     {nome: 'Aluno2', matricula: 2, nota1: 8, nota2: 8, nota3: 8},
     {nome: 'Aluno3', matricula: 3, nota1: 5, nota2: 5, nota3: 5},
     {nome: 'Aluno4', matricula: 4, nota1: 1, nota2: 1, nota3: 1},
     {nome: 'Aluno5', matricula: 5, nota1: 6, nota2: 6, nota3: 6}
-).menorMedia
+)
 
+console.log(`Aluno com maior nota 1: ${alunos.situacao.alunoMaiorNota}`)
+console.log(`Aluno com maior média: ${alunos.situacao.nomeAlunoMaiorMedia}`)
+console.log(`Aluno com menor média: ${alunos.situacao.nomeAlunoMenorMedia}`)
 
-//console.log(new Alunos("Andressa", 402305, 8).exibirSituacao)
+console.log(`${alunos.situacao.sitAluno1}`)
+console.log(`${alunos.situacao.sitAluno2}`)
+console.log(`${alunos.situacao.sitAluno3}`)
+console.log(`${alunos.situacao.sitAluno4}`)
+console.log(`${alunos.situacao.sitAluno5}`)
