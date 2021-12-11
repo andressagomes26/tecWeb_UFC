@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <H2>Criar uma tabela com o array pessoa  montar a tabela dentro da div conteudo</H2>
+    <div id='conteudo'></div>
+
+    <script>
+        const pessoas = [
+            { nome: 'Ana', nota: 9.1 },
+            { nome: 'Bianca', nota: 8.4 },
+            { nome: 'Carlos', nota: 7.6 },
+            { nome: 'Julia', nota: 9.7 }
+        ]
+
+        $('#conteudo').insertAfter('div').addClass('divTable')
+        $('.divTable').append('<table></table>')
+        $('table').append('<thead></thead>')
+        $('thead').append('<tr></tr>')
+        $('tr').append('<th>Nome</th>')
+        $('tr').append('<th>Nota</th>')
+        
+        $('table').append('<tbody></tbody>')
+
+        for(pessoa of pessoas){
+            $('tbody').append('<tr></tr>').addClass('linha')
+            $('.linha').append(`<td>${pessoa.nome}</td>`)
+            $('.linha').append(`<td>${pessoa.nota}</td>`)
+        }
+    </script>
+</body>
