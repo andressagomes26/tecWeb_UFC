@@ -7,6 +7,8 @@ Repositório referente à disciplina Tecnologias Web 2021.2 ofertada pela Univer
 - HTML;
 - CSS;
 - JavaScript;
+- JQuery;
+- Bootstrap;
   
 ## Atividades 💻
 
