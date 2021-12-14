@@ -1,0 +1,85 @@
+.formCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+
+.formCard section{
+    border: 1px solid rgb(218, 217, 217);
+    border-radius: 8px;
+    background-color: rgba(164, 226, 224, 0.8);
+
+    overflow: hidden;
+
+    width: 60vw;
+    min-height: 90vh;
+    margin: 6vh auto;
+    padding: 16px 20px;
+}
+
+.formCard section h3{
+    text-align: center;
+    color: rgb(54, 54, 54);
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.formCard section .columns{
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 2px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+}
+
+.formCard section .columns p,
+.formCard section .columns span{
+    margin-left: 20px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+}
+
+.formCard section .columns input[type="text"] { 
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+
+    border-radius: 8px;
+    height: 42px;
+    padding: 4px;
+}
+
+.formCard section .columns span,
+.formCard section .columns input { 
+    margin: auto 0;
+}
+
+input[type="radio"]{
+    width: initial;
+    margin-right: 4px;
+}
+
+/*input,
+select {
+    width: 100%;
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"]{
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder{
+    font-size: 16px;
+    font-weight: normal;
+}*/

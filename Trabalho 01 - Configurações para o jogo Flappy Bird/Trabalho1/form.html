@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário - Flappy Bird</title>
+
+    <link rel="stylesheet" href="css/flappy.css">
+    <link rel="stylesheet" href="css/formulario.css">
+
+</head>
+<body>
+
+    <form class="formCard" method="POST" action='/index'>
+        <section class="details">
+
+        <h3>Configurações do Jogo</h3>
+        <div class="columns">
+            <p>Nome do Jogador</p>
+            <input type="text">
+        </div>
+
+        <div class="columns">
+            <p>Cenário do Jogo:</p>
+            <span>
+                <input type="radio" name="cenario" value="noturno" checked>Noturno
+                <input type="radio" name="cenario" value="diurno" checked>Diurno
+            </span>
+        </div>
+
+        <div class="columns">
+            <p>Intervalo entre abertura dos canos</p>
+            <span>
+                <input type="radio" name="intervaloAbertura" value="facil" checked>Fácil
+                <input type="radio" name="intervaloAbertura" value="medio">Médio
+                <input type="radio" name="intervaloAbertura" value="dificil">Difícil
+            </span>
+        </div>
+
+        <div class="columns">
+            <p>Distância entre os canos:</p>
+            <span>
+                <input type="radio" name="distanciaCanos" value="facil" checked>Fácil
+                <input type="radio" name="distanciaCanos" value="medio">Médio
+                <input type="radio" name="distanciaCanos" value="dificil">Difícil
+            </span>
+        </div>
+
+        <div class="columns">
+            <p>Velocidade do jogo:</p>
+            <input type="text">
+        </div>
+
+        <div class="columns">
+            <p>Personagens</p>
+            <input type="text">
+        </div>
+
+        <div class="columns">
+            <p>Tipo do jogo:</p>
+            <span>
+                <input type="radio" name="tipoJogo" value="treino" checked>Treino
+                <input type="radio" name="tipoJogo" value="real">Real
+            </span>
+        </div>
+
+        <div class="columns">
+            <p>Velocidade do personagem:</p>
+            <span>
+                <input type="radio" name="velocidadePersonagem" value="baixa" checked>Baixa
+                <input type="radio" name="velocidadePersonagem" value="media">Média
+                <input type="radio" name="velocidadePersonagem" value="rapida">Rápida
+            </span>
+        </div>
+
+        <div class="columns">
+            <p>Pontuação</p>
+            <span>
+                <input type="radio" name="potuacao" value="1" checked>1
+                <input type="radio" name="potuacao" value="10">10
+                <input type="radio" name="potuacao" value="100">100
+            </span>
+        </div>
+
+       </section>
+    </form>
+
+    <script src="js/flappy.js"></script>
+</body>
+</html>
