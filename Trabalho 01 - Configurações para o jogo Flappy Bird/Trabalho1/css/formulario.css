@@ -45,7 +45,8 @@
     letter-spacing: 0.7px;
 }
 
-.formCard section .columns input[type="text"] { 
+.formCard section .columns input[type="text"],
+.formCard section .columns select { 
     color: #555;
     font-weight: bold;
     font-size: 18px;
@@ -56,30 +57,7 @@
 }
 
 .formCard section .columns span,
-.formCard section .columns input { 
+.formCard section .columns input,
+.formCard section .columns select  { 
     margin: auto 0;
 }
-
-input[type="radio"]{
-    width: initial;
-    margin-right: 4px;
-}
-
-/*input,
-select {
-    width: 100%;
-    outline: none;
-    color: #555;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-input[type="radio"]{
-    width: initial;
-    margin-right: 4px;
-}
-
-input::placeholder{
-    font-size: 16px;
-    font-weight: normal;
-}*/

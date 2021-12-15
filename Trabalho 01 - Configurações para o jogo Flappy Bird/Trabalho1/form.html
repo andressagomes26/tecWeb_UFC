@@ -12,38 +12,38 @@
 </head>
 <body>
 
-    <form class="formCard" method="POST" action='/index'>
+    <form class="formCard" id="form">
         <section class="details">
 
         <h3>Configurações do Jogo</h3>
         <div class="columns">
-            <p>Nome do Jogador</p>
+            <p>Nome do Jogador:</p>
             <input type="text">
         </div>
 
         <div class="columns">
             <p>Cenário do Jogo:</p>
             <span>
-                <input type="radio" name="cenario" value="noturno" checked>Noturno
-                <input type="radio" name="cenario" value="diurno" checked>Diurno
+                <input type="radio" name="cenario" value="diurno" checked> Diurno
+                <input type="radio" name="cenario" value="noturno"> Noturno
             </span>
         </div>
 
         <div class="columns">
-            <p>Intervalo entre abertura dos canos</p>
+            <p>Intervalo entre abertura dos canos:</p>
             <span>
-                <input type="radio" name="intervaloAbertura" value="facil" checked>Fácil
-                <input type="radio" name="intervaloAbertura" value="medio">Médio
-                <input type="radio" name="intervaloAbertura" value="dificil">Difícil
+                <input type="radio" name="intervaloAbertura" value="facil" checked> Fácil
+                <input type="radio" name="intervaloAbertura" value="medio"> Médio
+                <input type="radio" name="intervaloAbertura" value="dificil"> Difícil
             </span>
         </div>
 
         <div class="columns">
             <p>Distância entre os canos:</p>
             <span>
-                <input type="radio" name="distanciaCanos" value="facil" checked>Fácil
-                <input type="radio" name="distanciaCanos" value="medio">Médio
-                <input type="radio" name="distanciaCanos" value="dificil">Difícil
+                <input type="radio" name="distanciaCanos" value="facil" checked> Fácil
+                <input type="radio" name="distanciaCanos" value="medio"> Médio
+                <input type="radio" name="distanciaCanos" value="dificil"> Difícil
             </span>
         </div>
 
@@ -53,39 +53,51 @@
         </div>
 
         <div class="columns">
-            <p>Personagens</p>
-            <input type="text">
+            <p>Personagens:</p>
+            <select name="personagens">
+                <option value="passaro">Pássaro</option>
+                <option value="cavalo">cavalo</option>
+            </select>
+           
+
         </div>
 
         <div class="columns">
             <p>Tipo do jogo:</p>
             <span>
-                <input type="radio" name="tipoJogo" value="treino" checked>Treino
-                <input type="radio" name="tipoJogo" value="real">Real
+                <input type="radio" name="tipoJogo" value="treino" checked> Treino
+                <input type="radio" name="tipoJogo" value="real"> Real
             </span>
         </div>
 
         <div class="columns">
             <p>Velocidade do personagem:</p>
             <span>
-                <input type="radio" name="velocidadePersonagem" value="baixa" checked>Baixa
-                <input type="radio" name="velocidadePersonagem" value="media">Média
-                <input type="radio" name="velocidadePersonagem" value="rapida">Rápida
+                <input type="radio" name="velocidadePersonagem" value="baixa" checked> Baixa
+                <input type="radio" name="velocidadePersonagem" value="media"> Média
+                <input type="radio" name="velocidadePersonagem" value="rapida"> Rápida
             </span>
         </div>
 
         <div class="columns">
             <p>Pontuação</p>
             <span>
-                <input type="radio" name="potuacao" value="1" checked>1
-                <input type="radio" name="potuacao" value="10">10
-                <input type="radio" name="potuacao" value="100">100
+                <input type="radio" name="potuacao" value="1" checked> 1
+                <input type="radio" name="potuacao" value="10"> 10
+                <input type="radio" name="potuacao" value="100"> 100
             </span>
         </div>
 
        </section>
-    </form>
 
+        <button type="submit" id='salvar'> confirmar </button>
+
+         
+      
+      
+    </form>
+    <script src="js/formulario.js"></script>
     <script src="js/flappy.js"></script>
+    
 </body>
 </html>

@@ -83,3 +83,19 @@ body {
     font-size: 70px;
     z-index: 100;
 }
+
+/* Cenário Noturno */
+[wm-flappy].noturno  {
+    border: 5px solid rgb(3, 17, 31);
+    background-color: rgb(3, 17, 31);
+}
+
+.noturno .barreira .borda{
+    background: linear-gradient(90deg, #25301b, #0e1305);
+    border: 2px solid #000;
+}
+.noturno .barreira .corpo {
+    background: linear-gradient(90deg, #334126, #0e1305);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}

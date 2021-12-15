@@ -169,6 +169,8 @@ function colidiu(passaro, barreiras) {
 }
 
  function FlappyBird() {
+   // definirCenario()
+
     let pontos = 0
     const areaDoJogo = document.querySelector('[wm-flappy]')
     const altura = areaDoJogo.clientHeight
@@ -183,6 +185,9 @@ function colidiu(passaro, barreiras) {
     areaDoJogo.appendChild(progresso.elemento)
     areaDoJogo.appendChild(passaro.elemento)
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+    
+    /* Alteração */
+    definirCenario(areaDoJogo)
 
     this.start = () => {
         const temporizador = setInterval(() => {
@@ -195,4 +200,15 @@ function colidiu(passaro, barreiras) {
         }, 20)
     }
 }
+
+
+/* Definindo cor do cenário */
+function definirCenario(wm_flappy){
+    var colorCenario = window.localStorage.getItem("valorCenario");
+    
+    if(colorCenario == "noturno") wm_flappy.classList.add('noturno')
+    else wm_flappy.classList.add('diurno')
+}
+    
+
  new FlappyBird().start() 
