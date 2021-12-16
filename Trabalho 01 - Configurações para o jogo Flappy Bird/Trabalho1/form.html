@@ -18,7 +18,7 @@
         <h3>Configurações do Jogo</h3>
         <div class="columns">
             <p>Nome do Jogador:</p>
-            <input type="text">
+            <input type="text" id="name">
         </div>
 
         <div class="columns">
@@ -49,14 +49,16 @@
 
         <div class="columns">
             <p>Velocidade do jogo:</p>
-            <input type="text">
+            <input type="number" id="velocidade" value='1' min='1' max='10'>
         </div>
 
         <div class="columns">
             <p>Personagens:</p>
-            <select name="personagens">
-                <option value="passaro">Pássaro</option>
-                <option value="cavalo">cavalo</option>
+            <select id="personagens">
+                <option id="passaro" value="passaro">Pássaro</option>
+                <option id="olaf" value="olaf">Olaf</option>
+                <option id="batman" value="batman">Batman</option>
+                <option id="coruja" value="coruja">Coruja</option>
             </select>
            
 
@@ -87,17 +89,19 @@
                 <input type="radio" name="potuacao" value="100"> 100
             </span>
         </div>
+        
+        <div class="button">
+            <button type="submit" id='salvar'> Iniciar </button>
+        </div>
 
        </section>
 
-        <button type="submit" id='salvar'> confirmar </button>
 
          
       
       
     </form>
     <script src="js/formulario.js"></script>
-    <script src="js/flappy.js"></script>
     
 </body>
 </html>

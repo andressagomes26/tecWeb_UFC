@@ -46,6 +46,7 @@
 }
 
 .formCard section .columns input[type="text"],
+.formCard section .columns input[type="number"],
 .formCard section .columns select { 
     color: #555;
     font-weight: bold;
@@ -60,4 +61,23 @@
 .formCard section .columns input,
 .formCard section .columns select  { 
     margin: auto 0;
+}
+
+.button {
+    width: 100%;
+    align-items: center;
+    margin-left: 40%;
+}
+
+button[type="submit"]{
+    padding: 8px 16px;
+    background-color: #017893;
+    color: white;
+    font-size: 18px;
+
+    border-radius: 4px;
+    width: 20%;
+    margin-top: 32px;
+    
+    cursor: pointer;
 }
