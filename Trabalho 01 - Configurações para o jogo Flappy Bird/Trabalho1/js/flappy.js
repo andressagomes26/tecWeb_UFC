@@ -12,14 +12,7 @@ function Barreira(reversa = false) {
     this.elemento.appendChild(reversa ? borda : corpo)
 
     this.setAltura = altura => corpo.style.height = `${altura}px`
-
 }
-
-/* const b= new Barreira(false)
-b.setAltura(500)
-document.querySelector('[wm-flappy]').appendChild(b.elemento) */  
-
-
 
 function ParDeBarreiras(altura, abertura, popsicaoNaTela) {
     this.elemento = novoElemento('div', 'par-de-barreiras')
@@ -37,15 +30,12 @@ function ParDeBarreiras(altura, abertura, popsicaoNaTela) {
         this.inferior.setAltura(alturaInferior)
     }
     this.getX = () => parseInt(this.elemento.style.left.split('px')[0])
-    this.setX =  popsicaoNaTela => this.elemento.style.left = `${popsicaoNaTela}px`
+    this.setX = popsicaoNaTela => this.elemento.style.left = `${popsicaoNaTela}px`
     this.getLargura = () => this.elemento.clientWidth
 
     this.sortearAbertura()
     this.setX(popsicaoNaTela)
-} 
-
-/* const b= new ParDeBarreiras(500,300,1000)
-document.querySelector('[wm-flappy]').appendChild(b.elemento)  */
+}
 
 function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
     this.pares = [
@@ -74,16 +64,6 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
     }
 }
 
-/* const barreiras = new Barreiras(700, 400, 200, 400)
-const areaDoJogo = document.querySelector('[wm-flappy]')
-
-barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) 
-
-setInterval(() => {
-    barreiras.animar()
-},20)  */
-
-
 function Passaro(alturaJogo) {
     let voando = false
 
@@ -97,8 +77,8 @@ function Passaro(alturaJogo) {
     window.onkeyup = e => voando = false
 
     this.animar = () => {
-        vel =  velocidadePersonagem()
-        const novoY = this.getY() + (voando ?  vel[0] :  vel[1])
+        vel = velocidadePersonagem()
+        const novoY = this.getY() + (voando ? vel[0] : vel[1])
         const alturaMaxima = alturaJogo - this.elemento.clientWidth
 
         if (novoY <= 0) {
@@ -112,39 +92,16 @@ function Passaro(alturaJogo) {
     this.setY(alturaJogo / 2)
 }
 
-/* const barreiras = new Barreiras(700, 400, 200, 400)
-const passaro = new Passaro(700)
-
-const areaDoJogo = document.querySelector('[wm-flappy]')
-
-areaDoJogo.appendChild(passaro.elemento)
-barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) 
-
-setInterval(() => {
-      barreiras.animar()
-      passaro.animar() 
-},20) */
-
-
- function Progresso() {
+function Progresso() {
 
     this.elemento = novoElemento('span', 'progresso')
     this.atualizarPontos = pontos => {
-        this.elemento.innerHTML = pontos * definirPontuacao()
+        this.elemento.innerHTML = pontos
     }
     this.atualizarPontos(0)
 }
 
-/*  const barreiras = new Barreiras(700, 400, 200, 400)
-const passaro = new Passaro(700)
-
-const areaDoJogo = document.querySelector('[wm-flappy]')
-
-areaDoJogo.appendChild(passaro.elemento)
-barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento))  */
-
-
- function estaoSobrepostos(elementoA, elementoB) {
+function estaoSobrepostos(elementoA, elementoB) {
 
     const a = elementoA.getBoundingClientRect()
     const b = elementoB.getBoundingClientRect()
@@ -169,7 +126,7 @@ function colidiu(passaro, barreiras) {
 
 }
 
- function FlappyBird() {
+function FlappyBird() {
     let pontos = 0
     const areaDoJogo = document.querySelector('[wm-flappy]')
     const altura = areaDoJogo.clientHeight
@@ -177,15 +134,15 @@ function colidiu(passaro, barreiras) {
 
     const progresso = new Progresso()
     const barreiras = new Barreiras(altura, largura, definirIntervaloAbertura(), definirDistanciaCanos(),
-        () => progresso.atualizarPontos(++pontos))
+        () => progresso.atualizarPontos(pontos = pontos + definirPontuacao()))
 
     const passaro = new Passaro(altura)
 
     areaDoJogo.appendChild(progresso.elemento)
     areaDoJogo.appendChild(passaro.elemento)
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
-    
-    /* Alteração */
+
+    /* Cenário */
     definirCenario(areaDoJogo)
 
     this.start = () => {
@@ -193,30 +150,39 @@ function colidiu(passaro, barreiras) {
             barreiras.animar()
             passaro.animar()
 
-            if(definirTipoJogo()){
-                if(colidiu(passaro,barreiras)){
-                    alert(`Parabéns, ${definirNome()} você fez ${pontos * definirPontuacao()}`)
-                    clearInterval(temporizador) 
+            if (definirTipoJogo()) {
+                if (colidiu(passaro, barreiras)) {
+                    clearInterval(temporizador)
+
+                    if (pontos != 0) {
+                        var alerta = confirm(`Parabéns, ${definirNome()}!! Você fez ${pontos} pontos! Deseja continuar jogando?`)
+                        if (alerta) window.location.href = './form.html';
+                        else areaDoJogo.style.display = 'none'
+                    } else {
+                        var alerta = confirm(`Poxa, ${definirNome()} :( sua pontuação foi ${pontos}. Deseja continuar jogando?`)
+                        if (alerta) window.location.href = './form.html';
+                        else areaDoJogo.style.display = 'none'
+                    }
+
                 }
-             } 
+            }
         }, 20)
     }
 }
 
-
 /* Definindo cor do cenário */
-function definirCenario(wm_flappy){
+function definirCenario(wm_flappy) {
     var colorCenario = window.localStorage.getItem("valorCenario");
-    
-    if(colorCenario == "noturno") wm_flappy.classList.add('noturno')
+
+    if (colorCenario == "noturno") wm_flappy.classList.add('noturno')
     else wm_flappy.classList.add('diurno')
 }
 
 /* Definindo a abertura da barreira */
-function definirIntervaloAbertura(){
+function definirIntervaloAbertura() {
     var aberturaBarreira = window.localStorage.getItem("valorIntervaloAbertura");
-    
-    switch(aberturaBarreira){
+
+    switch (aberturaBarreira) {
         case "facil":
             return 400
         case "medio":
@@ -229,10 +195,10 @@ function definirIntervaloAbertura(){
 }
 
 /* Definindo a distância entre os canos: */
-function definirDistanciaCanos(){
+function definirDistanciaCanos() {
     var distanciaCanos = window.localStorage.getItem("valorDistanciaCanos");
-    
-    switch(distanciaCanos){
+
+    switch (distanciaCanos) {
         case "facil":
             return 600
         case "medio":
@@ -243,24 +209,24 @@ function definirDistanciaCanos(){
             break
     }
 }
-   
+
 /* Definindo a velocidade do jogo: */
-function definirVelocidade(){
-    var velocidade = window.localStorage.getItem("valorVelocidade");
+function definirVelocidade() {
+    var velocidade = Number(window.localStorage.getItem("valorVelocidade"));
     return velocidade
 }
 
 /* Definindo o personagem: */
-function definirPesonagem(){
+function definirPesonagem() {
     var personagemJogo = window.localStorage.getItem("valorPersonagem");
     return personagemJogo
 }
-   
+
 /* Definindo o tipo de jogo: */
-function definirTipoJogo(){
+function definirTipoJogo() {
     var tipoJogo = window.localStorage.getItem("valortipoJogo");
-    
-    switch(tipoJogo){
+
+    switch (tipoJogo) {
         case "real":
             return true
         case "treino":
@@ -271,10 +237,10 @@ function definirTipoJogo(){
 }
 
 /* Definindo a velocidade da personagem: */
-function velocidadePersonagem(){
+function velocidadePersonagem() {
     var velocidadeP = window.localStorage.getItem("valorvelocidadePersonagem");
-    
-    switch(velocidadeP){
+
+    switch (velocidadeP) {
         case "baixa":
             return [4, -4]
         case "media":
@@ -287,17 +253,15 @@ function velocidadePersonagem(){
 }
 
 /* Definindo o valor dos pontos: */
-function definirPontuacao(){
+function definirPontuacao() {
     var pontuacao = window.localStorage.getItem("valorPotuacao");
-    return pontuacao
+    return Number(pontuacao)
 }
 
 /* Definindo o nome do usuário */
-function definirNome(){
+function definirNome() {
     var Nome = window.localStorage.getItem("valorName");
     return Nome
 }
 
-
-
- new FlappyBird().start() 
+new FlappyBird().start()
