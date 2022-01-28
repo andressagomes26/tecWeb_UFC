@@ -1,6 +1,13 @@
 <?php
+//session_start();
+//$_SESSION["administrador"] = 'true';
+
+//include("Login.php");
 session_start();
-$_SESSION["administrador"] = 'true';
+
+if (!isset($_SESSION['administrador'])) {
+    header("Location:../index.html");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -76,6 +83,37 @@ $_SESSION["administrador"] = 'true';
                 </div>
             </li>
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+                    aria-expanded="true" aria-controls="collapse2">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>PET</span>
+                </a>
+                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Funcionalidades:</h6>
+                        <a class="collapse-item" href="?rota=cadastrar_animal">Cadastrar</a>
+                        <a class="collapse-item" href="?rota=visualizar_animal">Visualizar</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
+                    aria-expanded="true" aria-controls="collapse3">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Consultas</span>
+                </a>
+                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Funcionalidades:</h6>
+                        <a class="collapse-item" href="?rota=cadastrar_consulta">Cadastrar</a>
+                        <a class="collapse-item" href="?rota=visualizar_consulta">Visualizar</a>
+                    </div>
+                </div>
+            </li>
             
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -361,7 +399,9 @@ $_SESSION["administrador"] = 'true';
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <?php
+                    echo '<a href="logout.php?token='.md5(session_id()).'">Sair</a>';
+                    ?>
                 </div>
             </div>
         </div>
@@ -378,8 +418,8 @@ $_SESSION["administrador"] = 'true';
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- funcoes adicioandas -->
-    <script src="../js/principal.js"></script>
-
+    <!--script src="../js/principal.js"></script!-->
+    <script src="../js/principal2.js"></script>
 </body>
 
 </html>

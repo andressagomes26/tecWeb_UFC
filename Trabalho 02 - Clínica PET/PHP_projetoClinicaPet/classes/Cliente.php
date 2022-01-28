@@ -94,7 +94,7 @@ class Cliente{
             
             $interacaoMySql = $this->conexaoBD->prepare("UPDATE  cliente set  nome_cliente=?, email_cliente=?, cpf_cliente=?, endereco_cliente=?, celular_cliente=?
             where id_cliente=?");
-            $interacaoMySql->bind_param('sssiss', $this->getNome(),$this->getEmail(),$this->getCPF(),$this->getId(),$this->getEndereco(),$this->getCelular());
+            $interacaoMySql->bind_param('sssssi', $this->getNome(),$this->getEmail(),$this->getCPF(),$this->getEndereco(),$this->getCelular(),$this->getId());
             $retorno=$interacaoMySql->execute();
             if ($retorno === false) {
                 trigger_error($this->conexaoBD->error, E_USER_ERROR);
@@ -121,7 +121,7 @@ class Cliente{
         $this->retornoBD=$this->conexaoBD-> query($sql);
     }
     public function selecionarClientes(){
-        $sql="select * from cliente order by data_cadastro_cliente DESC";
+        $sql="select * from cliente order by nome_cliente DESC";
         $this->retornoBD=$this->conexaoBD-> query($sql);
     }
 

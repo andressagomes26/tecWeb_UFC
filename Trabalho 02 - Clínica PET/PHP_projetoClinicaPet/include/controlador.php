@@ -1,5 +1,8 @@
 <?php
 include_once("../classes/Cliente.php");
+include_once("../classes/Animal.php");
+include_once("../classes/ConsultaPet.php");
+
 //Get
 if (isset($_GET['rota'])) {
     switch ($_GET['rota']) {
@@ -14,7 +17,30 @@ if (isset($_GET['rota'])) {
         case "editar_cliente":
             include("../include/editarCliente.php");
             break;
-     
+        
+        case "cadastrar_animal":
+            include("../include/cadastrarAnimal.php");
+            break;
+
+        case "visualizar_animal":
+            include("../include/visualizarAnimal.php");
+            break;
+
+        case "editar_animal":
+            include("../include/editarAnimal.php");
+            break;
+
+        case "cadastrar_consulta":
+            include("../include/cadastrarConsulta.php");
+            break;
+
+        case "visualizar_consulta":
+            include("../include/visualizarConsulta.php");
+            break;
+
+        case "editar_consulta":
+            include("../include/editarConsulta.php");
+            break;
     }
 }
 
@@ -27,9 +53,6 @@ if (isset($_POST['formCadastrarCliente'])) {
     $objCliente->setEmail($_POST['emailCliente']);
     $objCliente->setEndereco($_POST['enderecoCliente']);
     $objCliente->setCelular($_POST['celularCliente']);
-    //echo"Nome: ".$objCliente->getNome()."<br/>";  // teste
-    //echo"Endereco: ".$objCliente->getEndereco()."<br/>";
-    //echo"Celular: ".$objCliente->getCelular()."<br/>";
 
     $objCliente->cadastrar();
 
@@ -43,4 +66,39 @@ if (isset($_POST['formCadastrarCliente'])) {
     $objCliente->setID($_POST['idCliente']);
     $objCliente->editar();
 
-}
+} else if (isset($_POST['formCadastrarAnimal'])) {
+    $objAnimal = new Animal();
+    $objAnimal->setNome($_POST['nomeAnimal']);
+    $objAnimal->setRaca($_POST['racaAnimal']);
+    $objAnimal->setNomeDono($_POST['nomeCliente']);
+    $objAnimal->cadastrar();
+
+} else if (isset($_POST['formEditarAnimal'])) {
+    $objAnimal = new Animal();
+    $objAnimal->setNome($_POST['nomeAnimal']);
+    $objAnimal->setRaca($_POST['racaAnimal']);
+    $objAnimal->setNomeDono($_POST['nomeCliente']);
+    $objAnimal->setID($_POST['idAnimal']);
+    $objAnimal->editar();
+
+} else if (isset($_POST['formCadastrarConsulta'])) {
+    $objConsulta = new ConsultaPet();
+    $objConsulta->setNome($_POST['nomeAnimal']);
+    $objConsulta->setNomeDono($_POST['nomeCliente']);
+    $objConsulta->setData($_POST['dataConsulta']);
+    $objConsulta->setHora($_POST['horaConsulta']);
+    $objConsulta->setObservacao($_POST['obsConsulta']);
+
+    $objConsulta->cadastrar();
+
+} else if (isset($_POST['formEditarConsulta'])) {
+    $objConsulta = new ConsultaPet();
+    $objConsulta->setNome($_POST['nomeAnimal']);
+    $objConsulta->setNomeDono($_POST['nomeCliente']);
+    $objConsulta->setData($_POST['dataConsulta']);
+    $objConsulta->setHora($_POST['horaConsulta']);
+    $objConsulta->setObservacao($_POST['obsConsulta']);
+    
+    $objConsulta->editar();
+
+} 
