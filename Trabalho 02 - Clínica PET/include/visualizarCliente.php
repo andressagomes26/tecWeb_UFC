@@ -73,11 +73,11 @@ if ($objCliente->retornoBD != null) {
             <table class="table table-striped table-hover">
                 <tr>
                     <th width="5%">#</th>
-                    <th width="25%">Nome</th>
-                    <th width="25%">Email</th>
-                    <th width="15%">CPF</th>
-                    <th width="15%">Endereço</th>
-                    <th width="25%">Celular</th>
+                    <th width="20%">Nome</th>
+                    <th width="20%">Email</th>
+                    <th width="10%">CPF</th>
+                    <th width="10%">Endereço</th>
+                    <th width="15%">Celular</th>
                     <th width="10%">Editar</th>
                     <th width="10%">Deletar</th>
                 </tr>

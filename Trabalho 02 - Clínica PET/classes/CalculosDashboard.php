@@ -1,7 +1,88 @@
 <?php
 include("../classes/Conexao.php");
 include("../classes/Utilidades.php");
-class Cliente{
+
+
+class CalculosDashboard{
+
+
+    public function totalConsultas(){
+
+        $objConexao = new Conexao();
+        $conexaoBD = $objConexao->getConexao();
+
+        $sql = mysqli_query($conexaoBD, "select * from consulta");
+        $retorno = mysqli_num_rows($sql);
+
+        echo $retorno;
+    }
+
+    public function totalAnimais(){
+
+        $objConexao = new Conexao();
+        $conexaoBD = $objConexao->getConexao();
+
+        $sql = mysqli_query($conexaoBD, "select * from animal");
+        $retorno = mysqli_num_rows($sql);
+
+        echo $retorno;
+    }
+
+    public function totalClientes(){
+
+        $objConexao = new Conexao();
+        $conexaoBD = $objConexao->getConexao();
+
+        $sql = mysqli_query($conexaoBD, "select * from cliente");
+        $retorno = mysqli_num_rows($sql);
+
+        echo $retorno;
+    }
+
+    public function totalDogs(){
+
+        $objConexao = new Conexao();
+        $conexaoBD = $objConexao->getConexao();
+
+        $sql = mysqli_query($conexaoBD, "select * from animal where raca_animal='cachorro'");
+        $retorno = mysqli_num_rows($sql);
+
+        echo $retorno;
+    }
+
+    public function totalCats(){
+
+        $objConexao = new Conexao();
+        $conexaoBD = $objConexao->getConexao();
+
+        $sql = mysqli_query($conexaoBD, "select * from animal where raca_animal='gato'");
+        $retorno = mysqli_num_rows($sql);
+
+        echo $retorno;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 
    private $nome;
    private $cpf;
@@ -132,3 +213,4 @@ class Cliente{
     }
   }
 
+*/
