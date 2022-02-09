@@ -23,6 +23,7 @@ Repositório referente à disciplina Tecnologias Web 2021.2 ofertada pela Univer
   - **Introdução ao JQuery:** [Exercício Introdução ao JQuery;](https://github.com/andressagomes26/tecWeb_UFC/tree/main/Aula%2005%20-%20JQuery/jquery)
   - **Trabalho 01:** [Configurações do jogo Flappy Bird;](https://github.com/andressagomes26/tecWeb_UFC/tree/main/Trabalho%2001%20-%20Configura%C3%A7%C3%B5es%20para%20o%20jogo%20Flappy%20Bird)
   - **Trabalho 02:** [Projeto Clínica PET;](https://github.com/andressagomes26/tecWeb_UFC/tree/main/Trabalho%2002%20-%20Cl%C3%ADnica%20PET)
+  - **Trabalho 03:** [Tutorial Flask;](https://github.com/andressagomes26/tecWeb_UFC/tree/main/Trabalho%2003%20-%20Tutorial%20Flask)
   
 ## Status do Projeto 📆📌
 - As resoluções das atividades encontram-se em desenvolvimento.
